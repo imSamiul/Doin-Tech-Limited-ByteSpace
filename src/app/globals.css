@@ -1,26 +1,175 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #ffffff;
+  --color-foreground: #262626;
+  --color-hero-blue: #0049c3;
+  --color-blue-700: #003be2;
+  --color-slate-950: #040819;
+  --color-stone-700: #443131;
+  --color-lime-400: #c1e338;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f6f6f6;
+  --color-white: #ffffff;
+  --color-electric-lime50: var(--electric-lime50);
+  --color-electric-lime100: var(--electric-lime100);
+  --color-electric-lime200: var(--electric-lime200);
+  --color-electric-lime300: var(--electric-lime300);
+  --color-electric-lime400: var(--electric-lime400);
+  --color-electric-lime500: var(--electric-lime500);
+  --color-electric-lime600: var(--electric-lime600);
+  --color-electric-lime700: var(--electric-lime700);
+  --color-electric-lime800: var(--electric-lime800);
+  --color-electric-lime900: var(--electric-lime900);
+  --color-electric-lime950: var(--electric-lime950);
+  --color-persian-blue50: var(--persian-blue50);
+  --color-persian-blue100: var(--persian-blue100);
+  --color-persian-blue200: var(--persian-blue200);
+  --color-persian-blue300: var(--persian-blue300);
+  --color-persian-blue400: var(--persian-blue400);
+  --color-persian-blue500: var(--persian-blue500);
+  --color-persian-blue600: var(--persian-blue600);
+  --color-persian-blue700: var(--persian-blue700);
+  --color-persian-blue800: var(--persian-blue800);
+  --color-persian-blue900: var(--persian-blue900);
+  --color-persian-blue950: var(--persian-blue950);
+  --color-shuttle-gray50: var(--shuttle-gray50);
+  --color-shuttle-gray100: var(--shuttle-gray100);
+  --color-shuttle-gray200: var(--shuttle-gray200);
+  --color-shuttle-gray300: var(--shuttle-gray300);
+  --color-shuttle-gray400: var(--shuttle-gray400);
+  --color-shuttle-gray500: var(--shuttle-gray500);
+  --color-shuttle-gray600: var(--shuttle-gray600);
+  --color-shuttle-gray700: var(--shuttle-gray700);
+  --color-shuttle-gray800: var(--shuttle-gray800);
+  --color-shuttle-gray900: var(--shuttle-gray900);
+  --color-shuttle-gray950: var(--shuttle-gray950);
+  --font-body-l: var(--body-l-font-family);
+  --font-body-m: var(--body-m-font-family);
+  --font-body-s: var(--body-s-font-family);
+  --font-body-XS: var(--body-XS-font-family);
+  --font-heading-l: var(--heading-l-font-family);
+  --font-heading-m: var(--heading-m-font-family);
+  --font-heading-s: var(--heading-s-font-family);
+  --font-heading-XS: var(--heading-XS-font-family);
+  --font-label-l: var(--label-l-font-family);
+  --font-label-m: var(--label-m-font-family);
+  --font-label-s: var(--label-s-font-family);
+  --font-label-XL: var(--label-XL-font-family);
+  --font-label-XS: var(--label-XS-font-family);
+  --shadow-a: var(--a);
+  --shadow-b: var(--b);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none border-0 bg-transparent outline-none;
+  }
+
+  .all-unset {
+    all: unset;
   }
 }
 
+:root {
+  --a:
+    -0.2557247281074524px 8px 3.5570311546325684px 0px rgba(0, 0, 0, 0.01),
+    -1.101583480834961px 24px 6.706250190734863px 0px rgba(0, 0, 0, 0.02),
+    -2.6556029319763184px 40px 11.21484375px 0px rgba(0, 0, 0, 0.03),
+    -5.0358099937438965px 96px 18.850000381469727px 0px rgba(0, 0, 0, 0.04),
+    -8.360231399536133px 120px 31.37890625px 0px rgba(0, 0, 0, 0.04),
+    -12.746894836425781px 160px 50.568748474121094px 0px rgba(0, 0, 0, 0.05),
+    -18.313825607299805px 200px 78.18672180175781px 0px rgba(0, 0, 0, 0.06),
+    -25.17905044555664px 320px 160px 0px rgba(0, 0, 0, 0.06);
+  --b:
+    0px 1.8518518209457397px 3.1481480598449707px 0px rgba(0, 0, 0, 0.02),
+    0px 8.148148536682129px 6.518518447875977px 0px rgba(0, 0, 0, 0.03),
+    0px 20px 13px 0px rgba(0, 0, 0, 0.04),
+    0px 38.51852035522461px 25.481481552124023px 0px rgba(0, 0, 0, 0.04),
+    0px 64.81481170654297px 46.85185241699219px 0px rgba(0, 0, 0, 0.05),
+    0px 100px 80px 0px rgba(0, 0, 0, 0.07);
+  --body-l-font-family: 'Manrope', sans-serif;
+  --body-m-font-family: 'Manrope', sans-serif;
+  --body-s-font-family: 'Manrope', sans-serif;
+  --body-XS-font-family: 'Manrope', sans-serif;
+  --heading-l-font-family: 'Poppins', sans-serif;
+  --heading-m-font-family: 'Poppins', sans-serif;
+  --heading-s-font-family: 'Poppins', sans-serif;
+  --heading-XS-font-family: 'Poppins', sans-serif;
+  --label-l-font-family: 'Manrope', sans-serif;
+  --label-m-font-family: 'Manrope', sans-serif;
+  --label-s-font-family: 'Manrope', sans-serif;
+  --label-XL-font-family: 'Manrope', sans-serif;
+  --label-XS-font-family: 'Manrope', sans-serif;
+  --electric-lime50: rgba(253, 255, 228, 1);
+  --electric-lime100: rgba(250, 255, 197, 1);
+  --electric-lime200: rgba(242, 255, 146, 1);
+  --electric-lime300: rgba(228, 255, 84, 1);
+  --electric-lime400: rgba(212, 251, 32, 1);
+  --electric-lime500: rgba(203, 252, 1, 1);
+  --electric-lime600: rgba(140, 180, 0, 1);
+  --electric-lime700: rgba(106, 137, 2, 1);
+  --electric-lime800: rgba(84, 107, 9, 1);
+  --electric-lime900: rgba(70, 90, 13, 1);
+  --electric-lime950: rgba(36, 51, 0, 1);
+  --persian-blue50: rgba(231, 246, 255, 1);
+  --persian-blue100: rgba(211, 238, 255, 1);
+  --persian-blue200: rgba(176, 221, 255, 1);
+  --persian-blue300: rgba(129, 197, 255, 1);
+  --persian-blue400: rgba(79, 157, 255, 1);
+  --persian-blue500: rgba(40, 114, 255, 1);
+  --persian-blue600: rgba(4, 69, 255, 1);
+  --persian-blue700: rgba(0, 67, 255, 1);
+  --persian-blue800: rgba(0, 59, 226, 1);
+  --persian-blue900: rgba(11, 54, 164, 1);
+  --persian-blue950: rgba(7, 30, 95, 1);
+  --shuttle-gray50: rgba(245, 245, 246, 1);
+  --shuttle-gray100: rgba(229, 230, 232, 1);
+  --shuttle-gray200: rgba(206, 208, 211, 1);
+  --shuttle-gray300: rgba(171, 174, 181, 1);
+  --shuttle-gray400: rgba(130, 134, 142, 1);
+  --shuttle-gray500: rgba(102, 105, 115, 1);
+  --shuttle-gray600: rgba(88, 90, 98, 1);
+  --shuttle-gray700: rgba(75, 76, 83, 1);
+  --shuttle-gray800: rgba(66, 67, 72, 1);
+  --shuttle-gray900: rgba(58, 59, 63, 1);
+  --shuttle-gray950: rgba(36, 37, 40, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #262626;
+  font-family:
+    'Manrope',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep existing utility names while serving the Google Font replacements. */
+[class~="font-['Satoshi']"] {
+  font-family:
+    'Manrope',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+[class~="font-['Clash_Display']"] {
+  font-family:
+    'Space Grotesk',
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
