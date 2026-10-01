@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { MdOutlineShoppingBag } from 'react-icons/md';
-import BackgroundGrid from './BackgroundGrid';
+import BackgroundGrid from './shared/BackgroundGrid';
 
 const navigationItems = [
   { label: 'Home', href: '/' },

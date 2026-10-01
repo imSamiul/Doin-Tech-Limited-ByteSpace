@@ -3,7 +3,8 @@
 import Image from 'next/image';
 import { MdOutlineSearch } from 'react-icons/md';
 import StudentWithLaptop from '../../public/hero-assets/StudentWithLaptop.png';
-import BackgroundGrid from './BackgroundGrid';
+
+import BackgroundGrid from './shared/BackgroundGrid';
 import HappyStudentsCard from './shared/HappyStudentsCard';
 import LearningProgressCard from './shared/LearningProgressCard';
 
