@@ -15,6 +15,9 @@ type CourseCardProps = {
   image: string;
 };
 
+const pillClass =
+  "whitespace-nowrap rounded-full bg-white/70 px-2 py-1 text-[10.5px] font-medium tracking-tight text-neutral-800 backdrop-blur-md font-['Satoshi'] sm:px-2.5 sm:text-[11px]";
+
 export default function CourseCard({
   title,
   author,
@@ -27,74 +30,65 @@ export default function CourseCard({
   image,
 }: CourseCardProps) {
   return (
-    <div className='flex flex-col w-full max-w-93.25 p-4  gap-4 rounded-3xl  border border-gray-200 '>
-      {/* ── Thumbnail Section (Using CSS Grid for Layering) ── */}
-      <div className='relative overflow-hidden rounded-xl'>
-        {/* Layer 1: Image */}
+    <div className='flex w-full max-w-[373px] flex-col gap-3 rounded-3xl border border-gray-200 p-3 sm:gap-4 sm:p-4'>
+      {/* ── Thumbnail ── */}
+      <div className='relative overflow-hidden rounded-2xl'>
         <Image
           src={image}
           alt={title}
           width={400}
           height={210}
-          className='h-52.5 w-full object-cover'
+          sizes='(min-width: 1024px) 373px, (min-width: 768px) 45vw, 100vw'
+          className='aspect-[400/210] h-auto w-full object-cover'
         />
 
-        {/* Layer 2: Overlay pills (Positioned absolute to bottom-left) */}
-        <div className='absolute bottom-[19.4px] left-3 z-10 flex flex-wrap items-center gap-3'>
-          <span className="rounded-full bg-[#F6F6F699]/60 px-3 py-1.5 text-[12px] font-medium text-black-700 backdrop-blur-md font-['Satoshi']">
-            {lessons} Lessons
-          </span>
-          <span className="rounded-full bg-[#F6F6F699]/60 px-3 py-1.5 text-[12px] font-medium text-black-700 backdrop-blur-md font-['Satoshi']">
-            {duration}
-          </span>
-          <span className="rounded-full bg-[#F6F6F699]/60 px-3 py-1.5 text-[12px] font-medium text-black-700 backdrop-blur-md font-['Satoshi']">
-            {comments} Comments
-          </span>
+        {/* Overlay pills — evenly distributed across the bottom within thumbnail bounds */}
+        <div className='absolute bottom-2.5 inset-x-2 z-10 flex items-center justify-between sm:bottom-3 sm:inset-x-2.5'>
+          <span className={pillClass}>{lessons} Lessons</span>
+          <span className={pillClass}>{duration}</span>
+          <span className={pillClass}>{comments} Comments</span>
         </div>
       </div>
 
-      {/* ── Content Section (Standard Flexbox) ── */}
-      <div className='flex flex-col gap-4'>
+      {/* ── Content ── */}
+      <div className='flex flex-col gap-3 sm:gap-4'>
         {/* Title & Rating Row */}
-        <div className='flex items-start justify-between'>
-          <div className='flex-1 min-w-0'>
-            <h3 className="truncate text-[20px] font-semibold leading-tight text-black-950 font-['Poppins']">
+        <div className='flex items-start justify-between gap-2'>
+          <div className='min-w-0 flex-1'>
+            <h3 className="truncate font-['Poppins'] text-lg font-semibold leading-tight text-black-950 sm:text-[20px]">
               {title}
             </h3>
-            {/* Author */}
-            <p className="text-[12px] font-normal font-['Satoshi']">
+            <p className="font-['Satoshi'] text-[12px] font-normal text-neutral-500">
               by{' '}
-              <span className=' text-blue-700 hover:underline cursor-pointer'>
+              <span className='cursor-pointer text-blue-700 hover:underline'>
                 {author}
               </span>
             </p>
           </div>
           <div className='flex shrink-0 items-center gap-1'>
-            <span className="text-[18px] text-neutral-700 font-['Satoshi']">
+            <span className="font-['Satoshi'] text-base text-neutral-700 sm:text-[18px]">
               {rating}
             </span>
-            <HiStar className='h-6 w-6 fill-yellow-400' />
+            <HiStar className='h-5 w-5 fill-neutral-300 sm:h-6 sm:w-6' />
           </div>
         </div>
 
         {/* Level + Avatars Row */}
-        <div className='flex items-center gap-3'>
-          {/* Level Pill */}
-          <div className='flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 font-["Satoshi"]'>
+        <div className='flex flex-wrap items-center gap-2 sm:gap-3'>
+          <div className='flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1.5 font-["Satoshi"] text-xs font-medium text-gray-700'>
             <BsBarChartFill />
             <span className="font-['Satoshi']">{level}</span>
           </div>
 
-          {/* Avatar Stack (4 avatars + 26+ badge, total 5) */}
           <AvatarStack limit={4} badgeText='26+' size='md' />
         </div>
 
         {/* Price Row */}
         <div>
-          <span className="text-xl font-semibold text-blue-700 font-['Poppins']">
+          <span className="font-['Poppins'] text-xl font-semibold text-blue-700">
             {price}
           </span>
-          <span className="text-sm font-normal text-neutral-500 font-['Satoshi']">
+          <span className="font-['Satoshi'] text-sm font-normal text-neutral-500">
             /lifetime
           </span>
         </div>
