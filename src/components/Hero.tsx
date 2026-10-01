@@ -7,32 +7,42 @@ import BackgroundGrid from './BackgroundGrid';
 import HappyStudentsCard from './shared/HappyStudentsCard';
 import LearningProgressCard from './shared/LearningProgressCard';
 
+/**
+ * Layout strategy
+ * ───────────────
+ * 1. Header (title, subtitle, search) is in normal document flow, so it can
+ *    wrap to any number of lines without colliding with the artwork below.
+ * 2. The "stage" (ring + student + 3 cards) has a fixed height per breakpoint
+ *    and everything inside is anchored to the horizontal centre (left-1/2 or
+ *    calc(50% ± Npx)), so it stays balanced at any width.
+ * 3. Decorative 3D shapes are sized/positioned in `cqw` (container-query
+ *    width units) so they scale with the 1440px design container, and are
+ *    hidden below `lg` where there isn't room for them.
+ */
 export default function Hero() {
   return (
     <section className='relative isolate flex w-full justify-center overflow-hidden'>
       <BackgroundGrid />
-      <div className='relative mx-auto h-225.75 w-360 shrink-0 overflow-hidden bg-transparent select-none'>
-        {/* ── Hero Headings & Search Bar Container ── */}
-        <div className=' w-full top-11.75 absolute flex flex-col items-center z-20'>
-          {/* Main Title (2 Lines) */}
-          <h1 className='w-full text-center text-[#FFF] font-poppins text-[72px] font-semibold leading-[120%] tracking-[-0.72px]'>
+
+      {/* ── Main Container (also the container-query root for the decor) ── */}
+      <div className='@container relative mx-auto w-full max-w-360 select-none bg-transparent'>
+        {/* ── Header: title, subtitle, search ── */}
+        <div className='relative z-20 flex flex-col items-center px-4 pt-6 md:pt-8 xl:pt-11.75'>
+          <h1 className='w-full text-balance text-center font-poppins text-4xl font-semibold leading-[120%] tracking-[-0.72px] text-[#FFF] md:text-5xl lg:text-6xl xl:text-[72px]'>
             Get Access to Hundreds
-            <br />
-            Courses Available
+            <br className='hidden sm:block' /> Courses Available
           </h1>
 
-          {/* Subtitle */}
-          <p className="mt-9 text-center text-(--Shuttle-Gray-100,#E5E6E8) font-['Satoshi'] text-[18px] font-normal leading-[160%]">
+          <p className="mt-4 max-w-190 px-2 text-center font-['Satoshi'] text-sm font-normal leading-[160%] text-(--Shuttle-Gray-100,#E5E6E8) md:mt-6 md:text-base xl:mt-9 xl:text-[18px]">
             Unlock your creativity, gain valuable knowledge, and grow your
             business with our wide range of courses.
           </p>
-          {/* Search Bar Container */}
-          <div className=' mt-15 flex justify-center items-center gap-3.75'>
-            {/* Input Pill */}
 
-            <div className='flex w-115.25 h-13 px-6 py-3 items-center gap-2 rounded-3xl bg-[#FFF]'>
-              <MdOutlineSearch className='w-5 h-5 shrink-0 fill-[#82868E]' />
-              <span className="text-[#82868E] text-[15px] font-normal font-['Satoshi']">
+          <div className='mt-6 flex w-full max-w-125 items-center justify-center gap-2 px-2 md:mt-10 md:gap-3.75 xl:mt-15'>
+            {/* Input Pill */}
+            <div className='flex h-11 min-w-0 flex-1 items-center gap-2 rounded-3xl bg-[#FFF] px-4 py-2 shadow-md md:h-13 md:px-6 md:py-3'>
+              <MdOutlineSearch className='h-5 w-5 shrink-0 fill-[#82868E]' />
+              <span className="truncate font-['Satoshi'] text-xs font-normal text-[#82868E] md:text-[15px]">
                 Course, topic, creator
               </span>
             </div>
@@ -40,103 +50,116 @@ export default function Hero() {
             {/* Search Button Pill */}
             <button
               data-layer='Search'
-              className="flex px-6 py-3 justify-center items-center gap-2 rounded-3xl bg-electric-Lime-400 text-neutral-900 font-medium text-[15px] font-['Satoshi'] cursor-pointer hover:bg-lime-300 transition-colors shadow-sm"
+              className="flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-3xl bg-electric-Lime-400 px-5 py-2.5 font-['Satoshi'] text-xs font-medium text-neutral-900 shadow-sm transition-colors hover:bg-lime-300 md:px-6 md:py-3 md:text-[15px]"
             >
               Search
             </button>
           </div>
         </div>
-        {/* ── Giant Neon Lime Cutout Ring / Arch ── */}
-        <div
-          data-layer='Ellipse 7'
-          className='Ellipse7 absolute left-1/2 top-116.75 size-287.25 -translate-x-1/2 rounded-full border-320 border-lime-400 pointer-events-none z-0'
-        />
 
-        {/* ── Center Student Cutout Holding Laptop ── */}
-        <Image
-          data-layer='Image'
-          src={StudentWithLaptop}
-          alt='Student with headphones and laptop'
-          width={578}
-          height={541}
-          className=' w-144.5 h-135.25 left-112.5 top-99.75 absolute z-10 pointer-events-none object-cover bg-lightgray '
-        />
+        {/* ── Stage: ring + student + floating cards ── */}
+        <div className='relative mt-8 h-107.5 w-full overflow-hidden md:mt-6 md:h-120 lg:mt-4 lg:h-117.5 xl:-mt-4 xl:h-126'>
+          {/* Giant Neon Lime Ring / Arch */}
+          <div
+            data-layer='Ellipse 7'
+            className='Ellipse7 pointer-events-none absolute left-1/2 top-10 z-0 size-160 -translate-x-1/2 rounded-full border-160 border-lime-400 md:top-12.5 md:size-215 md:border-240 lg:top-15 lg:size-250 lg:border-280 xl:top-17 xl:size-287.25 xl:border-320'
+          />
 
-        {/* ── Floating Badge 1: UI/UX Design (Left of Student Head) ── */}
-        <div className='absolute left-101 top-131 z-20 c flex flex-col justify-center items-start  p-4 rounded-2xl bg-white backdrop-blur-[10px]'>
-          <div className="font-medium text-base font-['Satoshi'] leading-tight">
-            UI/UX Design
+          {/* Student holding laptop */}
+          <Image
+            data-layer='Image'
+            src={StudentWithLaptop}
+            alt='Student with headphones and laptop'
+            width={578}
+            height={541}
+            priority
+            className='bg-lightgray pointer-events-none absolute left-1/2 top-0 z-10 h-auto w-[min(330px,88%)] -translate-x-1/2 object-cover md:w-110 lg:w-127.5 xl:w-144.5'
+          />
+
+          {/* Badge 1: UI/UX Design (left of student's head) */}
+          <div className='absolute left-3 top-22.5 z-20 flex origin-left scale-85 flex-col items-start justify-center whitespace-nowrap rounded-2xl bg-white p-3 shadow-xl backdrop-blur-[10px] md:left-[calc(50%-220px)] md:top-27.5 md:scale-95 md:p-4 lg:left-[calc(50%-270px)] lg:top-30 xl:left-[calc(50%-316px)] xl:top-31.25 xl:scale-100'>
+            <div className="font-['Satoshi'] text-sm font-medium leading-tight md:text-base">
+              UI/UX Design
+            </div>
+            <div className="font-['Satoshi'] text-[11px] text-gray-400 md:text-xs">
+              200 Courses • 1000+ Students
+            </div>
           </div>
-          <div className="text-gray-400 text-xs font-['Satoshi']">
-            200 Courses • 1000+ Students
-          </div>
+
+          {/* Badge 2: Learning Progress (right of student's head) */}
+          <LearningProgressCard
+            progress={55}
+            title='Learning Progress'
+            className='absolute right-3 top-25 z-20 origin-right scale-85 shadow-xl md:right-auto md:left-[calc(50%+85px)] md:top-30 md:origin-left md:scale-95 lg:left-[calc(50%+120px)] lg:top-31.25 xl:left-[calc(50%+142px)] xl:top-33 xl:scale-100'
+          />
+
+          {/* Badge 3: Happy Students (bottom-left of student) */}
+          <HappyStudentsCard
+            rating={4.5}
+            reviewsCount={240}
+            totalStudents='2K+'
+            className='absolute left-3 top-70 z-20 origin-left scale-85 shadow-xl md:left-[calc(50%-240px)] md:top-72.5 md:scale-95 lg:left-[calc(50%-310px)] lg:top-75 xl:left-[calc(50%-392px)] xl:top-79.5 xl:scale-100'
+          />
         </div>
 
-        {/* ── Floating Badge 2: Learning Progress (Right of Student Head) ── */}
-        <LearningProgressCard
-          progress={55}
-          title='Learning Progress'
-          className='absolute left-215.5 top-132.75 z-20'
-        />
+        {/* ── 3D floating Memphis shapes (lg and up) ──
+            Sizes and positions use cqw so they scale with the container. */}
 
-        {/* ── Floating Badge 3: Happy Students (Bottom Left of Student) ── */}
-        <HappyStudentsCard
-          rating={4.5}
-          reviewsCount={240}
-          totalStudents='2K+'
-          className='absolute left-82 top-179.25 z-20'
+        {/* Top-left: lime spring */}
+        <Image
+          src='/hero-assets/Spring1.png'
+          alt=''
+          aria-hidden
+          width={387}
+          height={387}
+          className='pointer-events-none absolute left-[-8.2cqw] top-[7cqw] z-0 hidden h-auto w-[26.9cqw] lg:block filter-[brightness(0)_invert(88%)_sepia(54%)_saturate(786%)_hue-rotate(24deg)_brightness(108%)]'
+        />
+        {/* Mid-left: white squiggle spring */}
+        <Image
+          src='/hero-assets/Spring1.png'
+          alt=''
+          aria-hidden
+          width={175}
+          height={175}
+          className='pointer-events-none absolute left-[12.8cqw] top-[24.8cqw] z-0 hidden h-auto w-[12.15cqw] rotate-12 -scale-x-100 drop-shadow-md lg:block filter-[brightness(0)_invert(100%)]'
+        />
+        {/* Bottom-left: cream cone */}
+        <Image
+          src='/hero-assets/Cone1.png'
+          alt=''
+          aria-hidden
+          width={342}
+          height={342}
+          className='pointer-events-none absolute bottom-0 left-[1.25cqw] z-10 hidden h-auto w-[23.75cqw] -rotate-15 drop-shadow-2xl lg:block xl:z-20 filter-[brightness(0)_invert(98%)_sepia(1%)_saturate(222%)_hue-rotate(202deg)_brightness(103%)]'
+        />
+        {/* Top-right: lime cone */}
+        <Image
+          src='/hero-assets/Cone2.png'
+          alt=''
+          aria-hidden
+          width={371}
+          height={371}
+          className='pointer-events-none absolute right-[-11.2cqw] top-[7cqw] z-0 hidden h-auto w-[25.8cqw] rotate-6 lg:block filter-[brightness(0)_invert(88%)_sepia(54%)_saturate(786%)_hue-rotate(24deg)_brightness(108%)]'
+        />
+        {/* Mid-right: white pyramid */}
+        <Image
+          src='/hero-assets/Cone3.png'
+          alt=''
+          aria-hidden
+          width={188}
+          height={188}
+          className='pointer-events-none absolute right-[10.1cqw] top-[23.9cqw] z-0 hidden h-auto w-[13.05cqw] drop-shadow-md lg:block filter-[brightness(0)_invert(100%)]'
+        />
+        {/* Bottom-right: cream ribbon */}
+        <Image
+          src='/hero-assets/Spring2.png'
+          alt=''
+          aria-hidden
+          width={331}
+          height={331}
+          className='pointer-events-none absolute right-[-1cqw] bottom-[1.4cqw] z-0 hidden h-auto w-[23cqw] drop-shadow-xl lg:block filter-[brightness(0)_invert(98%)_sepia(1%)_saturate(222%)_hue-rotate(202deg)_brightness(103%)]'
         />
       </div>
-      {/* ── 3D Floating Memphis Abstract Shapes ── */}
-      {/* Top-Left: Lime-Yellow Spring / Coil */}
-      <Image
-        src='/hero-assets/Spring1.png'
-        alt='Electric Lime Spring Decor'
-        width={387}
-        height={387}
-        className='absolute -left-29.5 top-25.25 auto pointer-events-none z-0 filter-[brightness(0)_invert(88%)_sepia(54%)_saturate(786%)_hue-rotate(24deg)_brightness(108%)]'
-      />
-      {/* Mid-Left: White Squiggle Spring */}
-      <Image
-        src='/hero-assets/Spring1.png'
-        alt=' White Squiggle Spring Decor'
-        width={175}
-        height={175}
-        className='absolute left-46 top-89.25 w-43.75 h-43.75 pointer-events-none rotate-12 z-0 drop-shadow-md -scale-x-100 filter-[brightness(0)_invert(100%)]'
-      />
-
-      {/* Bottom-Left: Cream / Off-White Donut Torus */}
-      <Image
-        src='/hero-assets/Cone1.png'
-        alt='Cone Decor'
-        width={342}
-        height={342}
-        className='absolute left-4.5 top-140.5 w-85.5 h-85.5 pointer-events-none -rotate-15 z-20 drop-shadow-2xl filter-[brightness(0)_invert(98%)_sepia(1%)_saturate(222%)_hue-rotate(202deg)_brightness(103%)]'
-      />
-      {/* Top-Right: Lime-Yellow Cylinder / Cone */}
-      <Image
-        src='/hero-assets/Cone2.png'
-        alt='Lime-Yellow Cylinder / Cone Decor'
-        width={371}
-        height={371}
-        className='absolute -right-40.25 top-25.25  pointer-events-none rotate-6 z-0 filter-[brightness(0)_invert(88%)_sepia(54%)_saturate(786%)_hue-rotate(24deg)_brightness(108%)]'
-      />
-      {/* Mid-Right: White Pyramid / Tetrahedron */}
-      <Image
-        src='/hero-assets/Cone3.png'
-        alt=''
-        width={188}
-        height={188}
-        className='absolute right-36.5 top-86 pointer-events-none z-0  drop-shadow-md filter-[brightness(0)_invert(100%)]'
-      />
-      {/* Bottom-Right: Cream Squiggle / Ribbon */}
-      <Image
-        src='/hero-assets/Spring2.png'
-        alt=''
-        width={331}
-        height={331}
-        className='absolute -right-3.75 top-138 pointer-events-none z-0 drop-shadow-xl filter-[brightness(0)_invert(98%)_sepia(1%)_saturate(222%)_hue-rotate(202deg)_brightness(103%)]'
-      />
     </section>
   );
 }
