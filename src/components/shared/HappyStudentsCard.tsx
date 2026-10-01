@@ -24,13 +24,13 @@ export default function HappyStudentsCard({
     >
       {/* Title & Rating */}
       <div className='flex flex-col'>
-        <h4 className="text-gray-950 text-[16px] font-medium font-['Satoshi'] leading-[120%]">
+        <h4 className='text-gray-950 text-[16px] font-medium font-satoshi leading-[120%]'>
           Happy Students
         </h4>
         <div className='inline-flex items-center gap-1.5 mt-0.5'>
-          <span className="text-gray-950 text-[12px] font-normal font-['Satoshi'] leading-[160%]">
+          <span className='text-gray-950 text-[12px] font-normal font-satoshi leading-[160%]'>
             {rating}{' '}
-            <span className="text-gray-400 text-[12px] font-normal font-['Satoshi'] leading-[160%]">
+            <span className='text-gray-400 text-[12px] font-normal font-satoshi leading-[160%]'>
               ({reviewsCount})
             </span>
           </span>
@@ -39,11 +39,7 @@ export default function HappyStudentsCard({
       </div>
 
       {/* Reusable Avatar Stack & Pill Badge */}
-      <AvatarStack
-        avatars={avatars}
-        badgeText={totalStudents}
-        size='lg'
-      />
+      <AvatarStack avatars={avatars} badgeText={totalStudents} size='lg' />
     </div>
   );
 }

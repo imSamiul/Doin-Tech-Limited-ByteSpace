@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/satoshi');
 @import 'tailwindcss';
 
 @theme inline {
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-satoshi: 'Satoshi', sans-serif;
   --color-background: #ffffff;
   --color-foreground: #262626;
   --color-hero-blue: #0049c3;
   --color-blue-700: #003be2;
+  --color-brand: #0038e6;
+  --color-lime: #d8f500;
+  --color-ink: #1a1a1a;
+  --shadow-card: 0 20px 50px -20px rgba(20, 30, 80, 0.25);
   --color-slate-950: #040819;
   --color-stone-700: #443131;
   --color-lime-400: #c1e338;
@@ -94,19 +104,19 @@
     0px 38.51852035522461px 25.481481552124023px 0px rgba(0, 0, 0, 0.04),
     0px 64.81481170654297px 46.85185241699219px 0px rgba(0, 0, 0, 0.05),
     0px 100px 80px 0px rgba(0, 0, 0, 0.07);
-  --body-l-font-family: 'Manrope', sans-serif;
-  --body-m-font-family: 'Manrope', sans-serif;
-  --body-s-font-family: 'Manrope', sans-serif;
-  --body-XS-font-family: 'Manrope', sans-serif;
+  --body-l-font-family: 'Satoshi', sans-serif;
+  --body-m-font-family: 'Satoshi', sans-serif;
+  --body-s-font-family: 'Satoshi', sans-serif;
+  --body-XS-font-family: 'Satoshi', sans-serif;
   --heading-l-font-family: 'Poppins', sans-serif;
   --heading-m-font-family: 'Poppins', sans-serif;
   --heading-s-font-family: 'Poppins', sans-serif;
   --heading-XS-font-family: 'Poppins', sans-serif;
-  --label-l-font-family: 'Manrope', sans-serif;
-  --label-m-font-family: 'Manrope', sans-serif;
-  --label-s-font-family: 'Manrope', sans-serif;
-  --label-XL-font-family: 'Manrope', sans-serif;
-  --label-XS-font-family: 'Manrope', sans-serif;
+  --label-l-font-family: 'Inter', sans-serif;
+  --label-m-font-family: 'Inter', sans-serif;
+  --label-s-font-family: 'Inter', sans-serif;
+  --label-XL-font-family: 'Inter', sans-serif;
+  --label-XS-font-family: 'Inter', sans-serif;
   --electric-lime50: rgba(253, 255, 228, 1);
   --electric-lime100: rgba(250, 255, 197, 1);
   --electric-lime200: rgba(242, 255, 146, 1);
@@ -150,7 +160,8 @@ body {
   background: #ffffff;
   color: #262626;
   font-family:
-    'Manrope',
+    'Satoshi',
+    'Inter',
     system-ui,
     -apple-system,
     sans-serif;
@@ -158,13 +169,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Keep existing utility names while serving the Google Font replacements. */
 [class~="font-['Satoshi']"] {
-  font-family:
-    'Manrope',
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: 'Satoshi', sans-serif;
 }
 
 [class~="font-['Clash_Display']"] {
@@ -173,4 +179,50 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
+}
+
+.squiggle path {
+  stroke: #cfff00;
+  stroke-width: 34;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.squiggle {
+  filter: drop-shadow(0 8px 10px rgba(120, 160, 0, 0.35));
+}
+
+.cutout {
+  filter: drop-shadow(0 30px 30px rgba(20, 30, 80, 0.25));
+}
+
+.bg-growth-glow {
+  background:
+    radial-gradient(
+      520px 420px at 22% 4%,
+      rgba(216, 245, 0, 0.45),
+      transparent 70%
+    ),
+    radial-gradient(
+      380px 380px at 0% 52%,
+      rgba(120, 140, 255, 0.28),
+      transparent 70%
+    ),
+    radial-gradient(
+      420px 420px at 4% 92%,
+      rgba(216, 245, 0, 0.5),
+      transparent 70%
+    ),
+    radial-gradient(
+      520px 520px at 96% 98%,
+      rgba(120, 140, 255, 0.3),
+      transparent 70%
+    ),
+    radial-gradient(
+      400px 400px at 100% 8%,
+      rgba(120, 140, 255, 0.18),
+      transparent 70%
+    ),
+    #fafafb;
 }

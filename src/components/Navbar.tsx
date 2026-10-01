@@ -60,7 +60,7 @@ export default function Navbar() {
           <Link
             key={item.label}
             href={item.href}
-            className={`font-['Satoshi'] text-base transition-colors hover:text-lime-400 ${
+            className={`font-satoshi text-base transition-colors hover:text-lime-400 ${
               index === 0 ? 'font-medium text-white' : 'text-white/80'
             }`}
           >
@@ -74,13 +74,13 @@ export default function Navbar() {
         {/* Desktop-only action buttons */}
         <div className='hidden items-center gap-6 md:flex lg:gap-7'>
           <button
-            className="cursor-pointer font-['Satoshi'] text-base text-white/90 transition-colors hover:text-white"
+            className='cursor-pointer font-satoshi text-base text-white/90 transition-colors hover:text-white'
             type='button'
           >
             Sign In
           </button>
           <button
-            className="cursor-pointer font-['Satoshi'] text-base text-white/90 transition-colors hover:text-white"
+            className='cursor-pointer font-satoshi text-base text-white/90 transition-colors hover:text-white'
             type='button'
           >
             Join Us
@@ -134,7 +134,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className={`rounded-lg px-3 py-2.5 font-['Satoshi'] text-base transition-colors hover:bg-white/10 hover:text-lime-400 ${
+                className={`rounded-lg px-3 py-2.5 font-satoshi text-base transition-colors hover:bg-white/10 hover:text-lime-400 ${
                   index === 0
                     ? 'font-medium text-white'
                     : 'font-normal text-white/80'
@@ -152,14 +152,14 @@ export default function Navbar() {
             <button
               type='button'
               onClick={() => setIsOpen(false)}
-              className="w-full rounded-xl border border-white/20 py-2.5 text-center font-['Satoshi'] text-sm font-medium text-white transition-colors hover:bg-white/10"
+              className='w-full rounded-xl border border-white/20 py-2.5 text-center font-satoshi text-sm font-medium text-white transition-colors hover:bg-white/10'
             >
               Sign In
             </button>
             <button
               type='button'
               onClick={() => setIsOpen(false)}
-              className="w-full rounded-xl bg-lime-400 py-2.5 text-center font-['Satoshi'] text-sm font-semibold text-neutral-900 transition-colors hover:bg-lime-300"
+              className='w-full rounded-xl bg-lime-400 py-2.5 text-center font-satoshi text-sm font-semibold text-neutral-900 transition-colors hover:bg-lime-300'
             >
               Join Us
             </button>

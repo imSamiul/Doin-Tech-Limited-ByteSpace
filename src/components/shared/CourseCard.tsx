@@ -16,7 +16,7 @@ type CourseCardProps = {
 };
 
 const pillClass =
-  "whitespace-nowrap rounded-full bg-white/70 px-2 py-1 text-[10.5px] font-medium tracking-tight text-neutral-800 backdrop-blur-md font-['Satoshi'] sm:px-2.5 sm:text-[11px]";
+  'whitespace-nowrap rounded-full bg-white/70 px-2 py-1 text-[10.5px] font-medium tracking-tight text-neutral-800 backdrop-blur-md font-satoshi sm:px-2.5 sm:text-[11px]';
 
 export default function CourseCard({
   title,
@@ -30,7 +30,7 @@ export default function CourseCard({
   image,
 }: CourseCardProps) {
   return (
-    <div className='flex w-full max-w-[373px] flex-col gap-3 rounded-3xl border border-gray-200 p-3 sm:gap-4 sm:p-4'>
+    <div className='flex w-full max-w-93.25 flex-col gap-3 rounded-3xl border border-gray-200 p-3 sm:gap-4 sm:p-4'>
       {/* ── Thumbnail ── */}
       <div className='relative overflow-hidden rounded-2xl'>
         <Image
@@ -39,7 +39,7 @@ export default function CourseCard({
           width={400}
           height={210}
           sizes='(min-width: 1024px) 373px, (min-width: 768px) 45vw, 100vw'
-          className='aspect-[400/210] h-auto w-full object-cover'
+          className='aspect-400/210 h-auto w-full object-cover'
         />
 
         {/* Overlay pills — evenly distributed across the bottom within thumbnail bounds */}
@@ -55,10 +55,10 @@ export default function CourseCard({
         {/* Title & Rating Row */}
         <div className='flex items-start justify-between gap-2'>
           <div className='min-w-0 flex-1'>
-            <h3 className="truncate font-['Poppins'] text-lg font-semibold leading-tight text-black-950 sm:text-[20px]">
+            <h3 className='truncate font-poppins text-lg font-semibold leading-tight text-black-950 sm:text-[20px]'>
               {title}
             </h3>
-            <p className="font-['Satoshi'] text-[12px] font-normal text-neutral-500">
+            <p className='font-satoshi text-[12px] font-normal text-neutral-500'>
               by{' '}
               <span className='cursor-pointer text-blue-700 hover:underline'>
                 {author}
@@ -66,7 +66,7 @@ export default function CourseCard({
             </p>
           </div>
           <div className='flex shrink-0 items-center gap-1'>
-            <span className="font-['Satoshi'] text-base text-neutral-700 sm:text-[18px]">
+            <span className='font-satoshi text-base text-neutral-700 sm:text-[18px]'>
               {rating}
             </span>
             <HiStar className='h-5 w-5 fill-neutral-300 sm:h-6 sm:w-6' />
@@ -75,9 +75,9 @@ export default function CourseCard({
 
         {/* Level + Avatars Row */}
         <div className='flex flex-wrap items-center gap-2 sm:gap-3'>
-          <div className='flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1.5 font-["Satoshi"] text-xs font-medium text-gray-700'>
+          <div className='flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1.5 font-satoshi text-xs font-medium text-gray-700'>
             <BsBarChartFill />
-            <span className="font-['Satoshi']">{level}</span>
+            <span className='font-satoshi '>{level}</span>
           </div>
 
           <AvatarStack limit={4} badgeText='26+' size='md' />
@@ -85,10 +85,10 @@ export default function CourseCard({
 
         {/* Price Row */}
         <div>
-          <span className="font-['Poppins'] text-xl font-semibold text-blue-700">
+          <span className='font-poppins text-xl font-semibold text-blue-700'>
             {price}
           </span>
-          <span className="font-['Satoshi'] text-sm font-normal text-neutral-500">
+          <span className='font-satoshi text-sm font-normal text-neutral-500'>
             /lifetime
           </span>
         </div>

@@ -33,10 +33,10 @@ export default function LearningPaths() {
       <div className='container mx-auto flex flex-col items-center gap-8 px-4 md:gap-12 xl:gap-17'>
         {/* Section heading */}
         <div className='flex max-w-229.25 flex-col items-center gap-3 text-center md:gap-4'>
-          <h2 className="text-balance font-['Poppins'] text-2xl font-medium leading-tight text-black md:text-3xl xl:text-[36px]">
+          <h2 className='text-balance font-poppins text-2xl font-medium leading-tight text-black md:text-3xl xl:text-[36px]'>
             Explore Diverse Learning Paths at Bytespace
           </h2>
-          <p className="font-['Satoshi'] text-base font-normal leading-7 text-gray-400 md:text-lg">
+          <p className='font-satoshi text-base font-normal leading-7 text-gray-400 md:text-lg'>
             At Bytespace, we believe in empowering individuals through
             knowledge. Our diverse range of courses spans various fields,
             ensuring there&rsquo;s something for everyone. Unleash your
@@ -65,7 +65,7 @@ export default function LearningPaths() {
                   className='size-8 sm:size-9'
                 />
               </div>
-              <span className="text-center font-['Satoshi'] text-base font-medium text-neutral-800 sm:text-lg xl:text-xl">
+              <span className='text-center font-satoshi text-base font-medium text-neutral-800 sm:text-lg xl:text-xl'>
                 {label}
               </span>
             </div>

@@ -34,7 +34,7 @@ export default function Hero() {
             <br className='hidden sm:block' /> Courses Available
           </h1>
 
-          <p className="mt-4 max-w-190 px-2 text-center font-['Satoshi'] text-sm font-normal leading-[160%] text-(--Shuttle-Gray-100,#E5E6E8) md:mt-6 md:text-base xl:mt-9 xl:text-[18px]">
+          <p className='mt-4 max-w-190 px-2 text-center font-satoshi text-sm font-normal leading-[160%] text-(--Shuttle-Gray-100,#E5E6E8) md:mt-6 md:text-base xl:mt-9 xl:text-[18px]'>
             Unlock your creativity, gain valuable knowledge, and grow your
             business with our wide range of courses.
           </p>
@@ -43,7 +43,7 @@ export default function Hero() {
             {/* Input Pill */}
             <div className='flex h-11 min-w-0 flex-1 items-center gap-2 rounded-3xl bg-[#FFF] px-4 py-2 shadow-md md:h-13 md:px-6 md:py-3'>
               <MdOutlineSearch className='h-5 w-5 shrink-0 fill-[#82868E]' />
-              <span className="truncate font-['Satoshi'] text-xs font-normal text-[#82868E] md:text-[15px]">
+              <span className='truncate font-satoshi text-xs font-normal text-[#82868E] md:text-[15px]'>
                 Course, topic, creator
               </span>
             </div>
@@ -51,7 +51,7 @@ export default function Hero() {
             {/* Search Button Pill */}
             <button
               data-layer='Search'
-              className="flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-3xl bg-electric-Lime-400 px-5 py-2.5 font-['Satoshi'] text-xs font-medium text-neutral-900 shadow-sm transition-colors hover:bg-lime-300 md:px-6 md:py-3 md:text-[15px]"
+              className='flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-3xl bg-electric-Lime-400 px-5 py-2.5 font-satoshi text-xs font-medium text-neutral-900 shadow-sm transition-colors hover:bg-lime-300 md:px-6 md:py-3 md:text-[15px]'
             >
               Search
             </button>
@@ -79,10 +79,10 @@ export default function Hero() {
 
           {/* Badge 1: UI/UX Design (left of student's head) */}
           <div className='absolute left-3 top-22.5 z-20 flex origin-left scale-85 flex-col items-start justify-center whitespace-nowrap rounded-2xl bg-white p-3 shadow-xl backdrop-blur-[10px] md:left-[calc(50%-220px)] md:top-27.5 md:scale-95 md:p-4 lg:left-[calc(50%-270px)] lg:top-30 xl:left-[calc(50%-316px)] xl:top-31.25 xl:scale-100'>
-            <div className="font-['Satoshi'] text-sm font-medium leading-tight md:text-base">
+            <div className='font-satoshi text-sm font-medium leading-tight md:text-base'>
               UI/UX Design
             </div>
-            <div className="font-['Satoshi'] text-[11px] text-gray-400 md:text-xs">
+            <div className='font-satoshi text-[11px] text-gray-400 md:text-xs'>
               200 Courses • 1000+ Students
             </div>
           </div>
