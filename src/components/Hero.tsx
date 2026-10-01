@@ -113,7 +113,7 @@ export default function Hero() {
           aria-hidden
           width={387}
           height={387}
-          className='pointer-events-none absolute left-[-8.2cqw] top-[7cqw] z-0 hidden h-auto w-[26.9cqw] lg:block filter-[brightness(0)_invert(88%)_sepia(54%)_saturate(786%)_hue-rotate(24deg)_brightness(108%)]'
+          className='pointer-events-none absolute left-[-11.2cqw] top-[7cqw] z-0 hidden h-auto w-[26.9cqw] lg:block filter-[brightness(0)_invert(88%)_sepia(54%)_saturate(786%)_hue-rotate(24deg)_brightness(108%)]'
         />
         {/* Mid-left: white squiggle spring */}
         <Image
