@@ -1,5 +1,4 @@
 import CoursesSection from '@/components/CoursesSection';
-import CtaBanner from '@/components/CtaBanner';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import LearningPaths from '@/components/LearningPaths';
@@ -15,7 +14,7 @@ export default function Home() {
       <CoursesSection />
       <LearningPaths />
       <ProfessionalGrowth />
-      <CtaBanner />
+      {/* <CtaBanner /> */}
       <Testimonials />
       <Footer />
     </main>

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Soft pastel background blobs (lime + periwinkle) */
+body {
+  background:
+    radial-gradient(520px 420px at 22% 4%, rgba(216, 245, 0, 0.45), transparent 70%),
+    radial-gradient(380px 380px at 0% 52%, rgba(120, 140, 255, 0.28), transparent 70%),
+    radial-gradient(420px 420px at 4% 92%, rgba(216, 245, 0, 0.5), transparent 70%),
+    radial-gradient(520px 520px at 96% 98%, rgba(120, 140, 255, 0.3), transparent 70%),
+    radial-gradient(400px 400px at 100% 8%, rgba(120, 140, 255, 0.18), transparent 70%),
+    #fafafb;
+}
+
+.squiggle path {
+  stroke: #cfff00;
+  stroke-width: 34;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.squiggle { filter: drop-shadow(0 8px 10px rgba(120, 160, 0, 0.35)); }
+.cutout { filter: drop-shadow(0 30px 30px rgba(20, 30, 80, 0.25)); }
